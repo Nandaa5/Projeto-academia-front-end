@@ -1,0 +1,33 @@
+<div class="container mt-4">  
+  <h2 class="mb-4 border-bottom border-3 border-danger">Pagamento</h2>
+
+  <div class="d-flex justify-content-end mb-2">
+    <a routerLink="/cadastrar-pagamento" routerLinkActive="active" class="btn btn-primary">Cadastrar</a>
+  </div>
+
+
+
+  <table class="table table-bordered table-hover align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th class="col-descricao">Data Vencimento</th>
+        <th class="col-valor">Data Pagamento</th>
+        <th class="col-tipo">Valor</th>
+        <th class="col-tipo">Matricula</th>
+        <th class="text-center">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let objeto of lista">
+        <td>{{ objeto.dataVencimento }}</td>
+        <td>{{ objeto.dataPagamento }}</td>
+        <td>{{ objeto.valor }}</td>
+        <td>{{ objeto.matricula?.numero }}</td>
+        <td class="text-center">
+          <button class="btn btn-sm btn-warning me-2" (click)="editar(objeto.id)">Editar</button>
+          <button class="btn btn-sm btn-danger" (click)="excluir(objeto.id!)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

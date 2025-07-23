@@ -1,0 +1,45 @@
+<div class="container mt-4">
+    <h2 class="mb-4 border-bottom border-3 border-danger">Pagamento</h2>
+
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <label for="dataVencimento" class="form-label">dataVencimento</label>
+                <input id="dataVencimento" type="date" class="form-control" formControlName="dataVencimento">
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <label for="dataPagamento" class="form-label">dataPagamento</label>
+            <input id="dataPagamento" type="date" class="form-control" formControlName="dataPagamento">
+        </div>
+
+        <div class="row">
+             <div class="col-md-3 mb-3">
+                <label for="valor" class="form-label">Valor</label>
+                <input id="valor" type="text" class="form-control" formControlName="valor" mask="separator.2"
+                    prefix="R$ ">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="matricula" class="form-label">Matricula</label>
+                <select class="form-select" aria-label="Default select example" formControlName="matricula">
+                    <option [ngValue]="null" disabled selected>Selecione uma matricula</option>
+                    <option *ngFor="let matricula of listaMatricula" [ngValue]="matricula">{{ matricula.numero }}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-secondary" (click)="onCancel()">
+                Cancelar
+            </button>
+            <button type="submit" class="btn btn-success" [disabled]="formGroup.invalid">
+                Salvar
+            </button>
+        </div>
+
+    </form>
+</div>

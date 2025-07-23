@@ -1,0 +1,32 @@
+<div class="container mt-4">
+    <h2 class="mb-4 border-bottom border-3 border-danger">Fichas</h2>
+
+    <div class="d-flex justify-content-end mb-2">
+        <a routerLink="/cadastrar-ficha" routerLinkActive="active" class="btn btn-primary">Cadastrar</a>
+    </div>
+
+    <table class="table table-bordered table-hover align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Data</th>
+                <th>Descrição</th>
+                <th>Situação</th>
+                <th>Pessoa</th>
+                <th class="text-center">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ficha of lista">
+                <td>{{ ficha.data | date:'dd/MM/yyyy' }}</td>
+                <td>{{ ficha.descricao }}</td>
+                <td>{{ ficha.situacao }}</td>
+                <td>{{ ficha.pessoa?.nome || 'Sem pessoa' }}</td>
+
+                <td class="text-center">
+                    <button class="btn btn-sm btn-warning me-2" (click)="editar(ficha.id)">Editar</button>
+                    <button class="btn btn-sm btn-danger" (click)="excluir(ficha.id)">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

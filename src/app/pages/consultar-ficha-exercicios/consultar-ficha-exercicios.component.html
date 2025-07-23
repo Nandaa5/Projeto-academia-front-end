@@ -1,0 +1,32 @@
+<div class="container mt-4">
+    <h2 class="mb-4 border-bottom border-3 border-danger">Fichas de Exercicios</h2>
+
+    <div class="d-flex justify-content-end mb-2">
+        <a routerLink="/cadastrar-fichaExercicio" routerLinkActive="active" class="btn btn-primary">Cadastrar</a>
+    </div>
+
+    <table class="table table-bordered table-hover align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Series</th>
+                <th>Repetições</th>
+                <th>Exercicios</th>
+                <th>Pessoa</th>
+                <th class="text-center">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let fichaExercicio of lista">
+                <td>{{ fichaExercicio.series }}</td>
+                <td>{{ fichaExercicio.repeticoes }}</td>
+                <td>{{ fichaExercicio.exercicio?.nome || 'Sem exercicio' }}</td>
+                <td>{{ fichaExercicio.ficha?.id || 'Sem ficha' }}</td>
+
+                <td class="text-center">
+                    <button class="btn btn-sm btn-warning me-2" (click)="editar(fichaExercicio.id)">Editar</button>
+                    <button class="btn btn-sm btn-danger" (click)="excluir(fichaExercicio.id)">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

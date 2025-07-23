@@ -1,0 +1,17 @@
+# Ignora a pasta de dependências do Node
+node_modules/
+
+# Ignora arquivos de log
+*.log
+
+# Ignora build do Angular
+dist/
+out-tsc/
+
+# Ignora configurações de IDEs
+.vscode/
+.idea/
+
+# Ignora arquivos do sistema
+.DS_Store
+Thumbs.db

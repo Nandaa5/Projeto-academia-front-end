@@ -1,0 +1,19 @@
+.col-nome {
+    width: 25%;
+}
+
+.col-cpf {
+    width: 15%;
+}
+
+.col-endereco{
+    width: 25%;
+}
+
+.col-telefone {
+    width: 15%;
+}
+
+.col-acoes {
+    width: 15%;
+  }

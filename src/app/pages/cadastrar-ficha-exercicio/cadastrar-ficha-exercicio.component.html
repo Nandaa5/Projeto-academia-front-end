@@ -1,0 +1,46 @@
+<div class="container mt-4">
+    <h2 class="mb-4 border-bottom border-3 border-danger">Ficha de Exercicio</h2>
+
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <label for="series" class="form-label">Series</label>
+                <input id="series" type="text" class="form-control" formControlName="series">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <label for="repeticoes" class="form-label">Repetições</label>
+                <input id="repeticoes" type="text" class="form-control" formControlName="repeticoes">
+            </div>
+        </div>
+
+        <div class="col-md-12 mb-3">
+            <label for="exercicio" class="form-label">Exercicio</label>
+
+            <select class="form-select" formControlName="exercicio">
+
+                <option [ngValue]="null" disabled selected>Selecione um exercicio</option>
+                <option *ngFor="let exercicio of listaExercicio" [ngValue]="exercicio">{{ exercicio.nome }}</option>
+            </select>
+        </div>
+
+        <div class="col-md-12 mb-3">
+            <label for="ficha" class="form-label">Ficha</label>
+            <select class="form-select" formControlName="ficha">
+                <option [ngValue]="null" disabled selected>Selecione uma ficha</option>
+                <option *ngFor="let ficha of listaFicha" [ngValue]="ficha">{{ ficha.id }}</option>
+            </select>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <a routerLink="/consultar-fichaExercicios" class="btn btn-secondary">
+                Cancelar
+            </a>
+            <button type="submit" class="btn btn-success" [disabled]="formGroup.invalid">
+                Salvar
+            </button>
+        </div>
+    </form>
+</div>
